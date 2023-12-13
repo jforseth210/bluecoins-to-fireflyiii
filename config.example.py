@@ -12,6 +12,9 @@ DB_CONFIG = {
     "TRANSACTION_DEPOSIT": 4,
     "TRANSACTION_TRANSFER": 5,
     "DATE_FORMAT": "%Y-%m-%d %H:%M:%S",
+
+    # This should be the ID of the destination account for withdrawls
+    # and the source account for deposits in Firefly III
     "CASH_ACCOUNT_ID": 7,
 }
 
