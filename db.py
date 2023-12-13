@@ -34,7 +34,6 @@ class bluecoinsDB:
             "   GROUP_CONCAT(categoryID) AS categoryIDs, "
             "   GROUP_CONCAT(accountID) as accountIDs, "
             "   GROUP_CONCAT(notes, CHAR(0x1D)) as notes, "
-            "   IFNULL(CASE WHEN newsplittransactionid IS 0 THEN NULL ELSE newsplittransactionid END, splittransactionid) AS mergedSplitTransactionID, "
             "   (SELECT GROUP_CONCAT(labelName) FROM LABELSTABLE WHERE transactionIDLabels = transactionsTableID GROUP BY transactionIDLabels) AS labelNames, "
             "   (SELECT GROUP_CONCAT(pictureFileName) FROM PICTURETABLE WHERE transactionID = transactionsTableID GROUP BY transactionID) AS pictureFileName "
             "FROM "
@@ -46,7 +45,7 @@ class bluecoinsDB:
             f"  AND transactionTypeID IN ({DB_CONFIG['TRANSACTION_DEPOSIT']},{DB_CONFIG['TRANSACTION_WITHDRAWAL']}) "
             "   AND deletedTransaction = 6 "
             "GROUP BY "
-            "   IFNULL(IFNULL(CASE WHEN newsplittransactionid IS 0 THEN NULL ELSE newsplittransactionid END, splittransactionid), transactionstableid) "
+            "   IFNULL(CASE WHEN newsplittransactionid IS 0 THEN NULL ELSE newsplittransactionid END, transactionstableid) "
             "ORDER BY "
             "   date DESC, transactionsTableID ASC "
         )
@@ -69,9 +68,7 @@ class bluecoinsDB:
             "           AND deletedTransaction = 6 "
             "       GROUP BY "
             "           IFNULL( "
-            "              IFNULL( "
             "                   CASE WHEN newsplittransactionid IS 0 THEN NULL ELSE newsplittransactionid END, "
-            "              splittransactionid), "
             "           transactionstableid) "
             "   )"
         )
