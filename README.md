@@ -1,5 +1,5 @@
 # Bluecoins to Firefly III importer
-This is a fork of dreautall's python script to import a [Bluecoins](https://play.google.com/store/apps/details?id=com.rammigsoftware.bluecoins) database into a [Firefly III](https://github.com/firefly-iii/firefly-iii/) instance. I ran into some issues with split transactions in my database export, but removing the offending lines seems to have solved it.
+This is a fork of dreautall's python script to import a [Bluecoins](https://play.google.com/store/apps/details?id=com.rammigsoftware.bluecoins) database into a [Firefly III](https://github.com/firefly-iii/firefly-iii/) instance. I ran into some issues with split transactions in my database export, but removing the offending lines seems to have solved it, use at your own risk. 
 
 ## How to Use
 
